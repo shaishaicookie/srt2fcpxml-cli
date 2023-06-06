@@ -7,12 +7,22 @@
  * @author Sherry Wang <https://github.com/shaishaicookie>
  */
 
-import fcpxml from './utils/fcpxml.js';
-import cli from './utils/cli.js';
+import fcpxml from './utils/fcpxml.js'
+// import cli from './utils/cli.js';
+import meow from 'meow'
 import ora from 'ora'
 import path from 'node:path'
 import fs from 'node:fs'
 
+const cli = meow(`
+	Usage
+	  $ s2s <srt> <fps> [destination]
+	  $ srt2subtitles <srt> <fps> [destination]
+
+	Examples
+	  $ s2s TheImitationGame.srt 30
+	  $ s2s TheImitationGame.srt 30 ./subtitles/
+`, {});
 
 const input = cli.input;
 let [srt_path, fps, destination_path] = cli.input
