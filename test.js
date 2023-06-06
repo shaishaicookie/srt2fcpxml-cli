@@ -32,7 +32,7 @@ test('test fcpxml generation with float fps', t => {
 
 test('cli with basic input', async t => {
 	try {
-        await execa(path.join(__dirname, 'index.js'), [path.join(__dirname, 'TheImitationGame.srt'), '30'])
+        await execa(path.join(__dirname, 'cli.js'), [path.join(__dirname, 'TheImitationGame.srt'), '30'])
 	} catch (error) {
         throw error
 	}
@@ -45,7 +45,7 @@ test('cli with basic input', async t => {
 test('cli with destination input', async t => {
     const cwd = temporaryDirectory()
 	try {
-        await execa(path.join(__dirname, 'index.js'), [path.join(__dirname, 'TheImitationGame.srt'), '25', cwd])
+        await execa(path.join(__dirname, 'cli.js'), [path.join(__dirname, 'TheImitationGame.srt'), '25', cwd])
 	} catch (error) {
         throw error
 	}
