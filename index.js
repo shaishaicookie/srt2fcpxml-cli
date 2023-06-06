@@ -28,7 +28,7 @@ if (srt_path && !srt_path.endsWith('.srt')) {
 }
 
 if (!fps) {
-	console.error('Specify frame rate ')
+	console.error('Specify frame rate')
 	process.exit(1)
 }
 
