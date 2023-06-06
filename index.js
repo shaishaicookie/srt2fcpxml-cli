@@ -7,53 +7,64 @@
  * @author Sherry Wang <https://github.com/shaishaicookie>
  */
 
-const init = require('./utils/init');
-const cli = require('./utils/cli');
-const log = require('./utils/log');
-const fcpxml = require('./utils/fcpxml')
+import fcpxml from './utils/fcpxml.js';
+import cli from './utils/cli.js';
+import ora from 'ora'
+import path from 'node:path'
+import fs from 'node:fs'
+
+
 const input = cli.input;
-// const flags = cli.flags;
-// const { clear } = flags;
+let [srt_path, fps, destination_path] = cli.input
 
-// const process = require('process')
+if (!srt_path) {
+	console.error('Specify a SRT file')
+	process.exit(1)
+}
 
-(async () => {
-	// init({ clear });
-	let [srt_path, fps, destination_path] = cli.input
+if (srt_path && !srt_path.endsWith('.srt')) {
+	console.error('Enter correct SRT file')
+	process.exit(1)
+}
 
-	if (!srt_path) {
-		console.error('Specify a SRT file')
-		process.exit(1)
+if (!fps) {
+	console.error('Specify frame rate ')
+	process.exit(1)
+}
+
+if (fps && !parseFloat(fps)) {
+	console.error('Enter correct fps number')
+	process.ext(1)
+}
+
+if (srt_path && !srt_path.endsWith('.srt') && fps && !parseFloat(fps)) {
+	console.error('Enter correct SRT file')
+	console.error('Enter correct fps number')
+	process.exit(1)
+}
+
+if (!destination_path) {
+	destination_path = process.cwd()
+}
+
+const spinner = ora('Creating editable subtitles XML files').start();
+
+
+try {
+  fcpxml(srt_path, fps, destination_path)
+  const project_name = path.parse(srt_path).name
+  // check fcpxml file
+  const fcpxml_path = path.join(destination_path, `${project_name}.fcpxml`)
+  const has_fcpxml = fs.existsSync(fcpxml_path)
+  if (has_fcpxml) {
+	spinner.succeed(`Created ${project_name}.fcpxml`)
+	} else {
+	spinner.fail('An error occurred during fcpxml generation, Please check your SRT format is correct');
 	}
+} catch (error) {
+  spinner.fail('An error occurred during fcpxml generation, Please check your SRT format is correct');
+}
 
-	if (srt_path && !srt_path.endsWith('.srt')) {
-		console.error('Enter correct SRT file')
-		process.exit(1)
-	}
 
-	if (!fps) {
-		console.error('Specify frame rate ')
-		process.exit(1)
-	}
 
-	if (fps && !parseFloat(fps)) {
-		console.error('Enter correct fps number')
-		process.ext(1)
-	}
 
-	if (srt_path && !srt_path.endsWith('.srt') && fps && !parseFloat(fps)) {
-		console.error('Enter correct SRT file')
-		console.error('Enter correct fps number')
-		process.exit(1)
-	}
-
-	if (!destination_path) {
-		destination_path = process.cwd()
-	}
-
-	
-	console.log(srt_path, fps, destination_path)
-
-	fcpxml(srt_path, fps, destination_path)
-
-})();
