@@ -16,12 +16,12 @@ import fs from 'node:fs'
 
 const cli = meow(`
 	Usage
-	  $ s2s <srt> <fps> [destination]
+	  $ srt2subtitles <srt> <fps> [destination]
 	  $ srt2subtitles <srt> <fps> [destination]
 
 	Examples
-	  $ s2s TheImitationGame.srt 30
-	  $ s2s TheImitationGame.srt 30 ./subtitles/
+	  $ srt2subtitles TheImitationGame.srt 25
+	  $ srt2subtitles TheImitationGame.srt 29.97 ./subtitles/
 `, {});
 
 const input = cli.input;
