@@ -1,11 +1,12 @@
 {
 	"name": "srt2subtitles",
-	"description": "Generate editable video subtitles in Final Cut Pro/Premiere Pro from a SRT file.",
+	"description": "Generate editable video subtitles in Final Cut Pro from a SRT file.",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
+	"type": "module",
 	"bin": {
-		"s2s": "index.js",
-		"srt2subtitles": "index.js"
+		"s2s": "cli.js",
+		"srt2subtitles": "cli.js"
 	},
 	"author": {
 		"name": "Sherry Wang",
@@ -14,25 +15,36 @@
 	},
 	"keywords": [
 		"srt2subtitles",
-		"Sherry Wang"
+		"cli-app",
+		"srt",
+		"fcpxml",
+		"subtitles",
+		"Final Cut Pro",
+		"video",
+		"macos",
+		"mac",
+		"app",
+		"application",
+		"apple"
 	],
 	"files": [
-		"index.js",
+		"cli.js",
 		"utils"
 	],
+
+
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\""
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",
-		"cli-alerts": "^1.2.2",
-		"cli-handle-error": "^4.4.0",
-		"cli-handle-unhandled": "^1.1.1",
-		"cli-meow-help": "^3.1.0",
-		"cli-welcome": "^2.2.2",
-		"meow": "^9.0.0"
+		"execa": "^7.1.1",
+		"meow": "^9.0.0",
+		"ora": "^6.3.1",
+		"tempy": "^3.0.0"
 	},
 	"devDependencies": {
+		"ava": "^5.3.0",
 		"prettier": "^2.8.8"
 	}
 }
