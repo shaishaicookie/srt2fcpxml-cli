@@ -17,7 +17,7 @@ npm install --global srt2subtitles
 ## Usage
 
 ```
-$ create-dmg --help
+$ srt2subtitles --help
   Generate editable video subtitles in Final Cut Pro from a SRT file.
   Usage
 	$ srt2subtitles <srt> <fps> [destination]
