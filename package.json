@@ -31,8 +31,6 @@
 		"cli.js",
 		"utils"
 	],
-
-
 	"scripts": {
 		"format": "prettier --write \"./**/*.{js,json}\""
 	},
