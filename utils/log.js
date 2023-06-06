@@ -1,12 +1,25 @@
 const alert = require('cli-alerts');
 
-module.exports = info => {
-	alert({
-		type: `warning`,
-		name: `DEBUG LOG`,
-		msg: ``
-	});
+// module.exports = info => {
+// 	alert({
+// 		type: `warning`,
+// 		name: `DEBUG LOG`,
+// 		msg: ``
+// 	});
 
+// 	console.log(info);
+// 	console.log();
+// };
+
+const cli = info => {
+	alert({
+	  type: 'warning',
+	  name: 'DEBUG LOG',
+	  msg: ''
+	});
+  
 	console.log(info);
 	console.log();
-};
+  };
+  
+  export default cli;
