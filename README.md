@@ -7,9 +7,7 @@ Imagine you are using Final Cut Pro to edit videos and want to add built-in subt
 <img src="srt2subtitles-cli-screenshot.gif">
 
 ## Install
-
 Ensure you have [Node.js](https://nodejs.org) 14 or later installed. Then run the following:
-
 ```sh
 npm install --global srt2subtitles
 ```
