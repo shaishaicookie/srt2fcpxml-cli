@@ -1,7 +1,7 @@
 {
 	"name": "srt2subtitles",
 	"description": "Generate editable video subtitles in Final Cut Pro from a SRT file.",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"license": "MIT",
 	"repository": "shaishaicookie/srt2subtitles-cli",
 	"type": "module",
